@@ -275,6 +275,7 @@ function refined_post_info_filter( $post_info ) {
 
 }
 
+
 add_filter( 'genesis_post_meta', 'refined_post_meta_filter' );
 /**
  * Customize the post meta output.
@@ -497,7 +498,7 @@ add_filter('genesis_footer_creds_text', 'refined_footer_creds_text');
  */
 function refined_footer_creds_text( $creds ) {
 
-    $creds = '<div class="creds">Copyright [footer_copyright] &middot; <a target="_blank" href="http://restored316designs.com/themes">Refined theme</a> by <a target="_blank" href="http://www.restored316designs.com">Restored 316</a></div>';
+    $creds = '<div class="creds">Copyright 2018 Olde Mistick Village By <a target="_blank" href="http://mirandacreative.com"> Miranda Creative </a></div>';
     return $creds;
 
 }
@@ -535,3 +536,58 @@ function refined_woo_gallery() {
 }
 
 
+//* Add About page slider to About Page
+add_action( 'genesis_before_content', 'about_page_slider' );
+function about_page_slider() {
+	if ( is_page('about') )
+genesis_widget_area( 'about-page-slider', array(
+		'before' => '<div id="about-page-slider" class="about-page-slider"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'about-page-slider' ) . '">',
+			'after'  => '</div></div>',
+	));
+	}
+
+//* Add Featured News Widget (from home page) to About Page
+add_action( 'genesis_before_content', 'about_featured_news' );
+function about_featured_news() {
+	if ( is_page('about') )
+genesis_widget_area( 'front-page-3', array(
+		'before' => '<div id="front-page-3" class="front-page-3"><div class="wrap"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'front-page-3' ) . '">',
+		'after'  => '</div></div></div>',
+	));
+	}
+
+add_action( 'genesis_after_loop', 'directory_featured_news' );
+function directory_featured_news() {
+	if ( is_page('shop') )
+genesis_widget_area( 'front-page-3', array(
+		'before' => '<div id="front-page-3" class="front-page-3"><div class="wrap"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'front-page-3' ) . '">',
+		'after'  => '</div></div></div>',
+	));
+	}
+
+	
+//* Add "Rent From Us" section to About Page
+add_action( 'genesis_after_loop', 'about_rent_from_us' );
+function about_rent_from_us() {
+	if ( is_page('about') )
+	genesis_widget_area( 'rent-from-us', array(
+		'before' => '<div id="rent-from-us" class="rent-from-us"><div class="wrap"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'rent-from-us' ) . '">',
+		'after'  => '</div></div></div>',
+	));
+}
+	
+	
+
+//* Contact Info Widget (Front Page 4) to every page
+add_action( 'genesis_after_loop', 'contact_info' );
+function contact_info() {
+genesis_widget_area( 'front-page-4', array(
+		'before' => '<div id="front-page-4" class="front-page-4"><div class="wrap"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'front-page-4' ) . '">',
+		'after'  => '</div></div></div>',
+	));
+}
+
+add_action('genesis_after_entry','flexing');
+function flexing(){
+  get_template_part('inc/flex'); 
+};

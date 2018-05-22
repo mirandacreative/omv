@@ -10,6 +10,14 @@
  * @license      GPL-2.0+
  */
 
+
+// Home slider.
+genesis_register_sidebar( array(
+	'id'            => 'front-page-slider',
+	'name'          => __( 'Front Page Slider', 'refined' ),
+	'description'   => __( 'This widget area is the image slider on the home page', 'refined' ),
+));
+
 // Home slider overlay widget area.
 genesis_register_sidebar( array(
 	'id'            => 'home-slider-overlay',
@@ -45,12 +53,27 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the 4th section on the front page.', 'refined' ),
 ));
 
-// Front Page 5 widget area.
+// Rent From Us widget area.
 genesis_register_sidebar( array(
-	'id'          => 'front-page-5',
-	'name'        => __( 'Front Page 5', 'refined' ),
-	'description' => __( 'This is the 5th section on the front page.', 'refined' ),
+	'id'          => 'rent-from-us',
+	'name'        => __( 'Rent From Us', 'refined' ),
+	'description' => __( 'This is the "Rent From Us" section on the about page.', 'refined' ),
 ));
+
+// About Page slider.
+genesis_register_sidebar( array(
+	'id'            => 'about-page-slider',
+	'name'          => __( 'About Page Slider', 'refined' ),
+	'description'   => __( 'This widget area is the image slider on the about page', 'refined' ),
+));
+
+// About Page Slider overlay widget area.
+genesis_register_sidebar( array(
+	'id'            => 'about-slider-overlay',
+	'name'          => __( 'About Slider Overlay', 'refined' ),
+	'description'   => __( 'This widget area appears on top of the slider on the about page', 'refined' ),
+));
+
 
 // Announcement widget area in navigation.
 genesis_register_sidebar( array(

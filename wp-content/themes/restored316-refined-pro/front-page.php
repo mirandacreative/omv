@@ -204,6 +204,16 @@ function refined_front_page_widgets() {
 		return;
 	}
 
+	genesis_widget_area( 'front-page-slider', array(
+			'before' => '<div id="front-page-slider" class="front-page-slider"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'front-page-slider' ) . '">',
+			'after'  => '</div></div>',
+		));
+
+genesis_widget_area( 'home-slider-overlay', array(
+			'before'	=> '<div class="home-slider-overlay widget-area"><div class="wrap">',
+			'after'		=> '</div></div></div>',
+		));
+
 	genesis_widget_area( 'front-page-1', array(
 		'before' => '<div id="front-page-1" class="front-page-1"><div class="wrap"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'front-page-1' ) . '">',
 		'after'  => '</div></div></div>',
@@ -224,16 +234,8 @@ function refined_front_page_widgets() {
 		'after'  => '</div></div></div>',
 	));
 
-	genesis_widget_area( 'front-page-4', array(
-		'before' => '<div id="front-page-4" class="front-page-4"><div class="wrap"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'front-page-4' ) . '">',
-		'after'  => '</div></div></div>',
-	));
 
-	genesis_widget_area( 'front-page-5', array(
-		'before' => '<div id="front-page-5" class="front-page-5"><div class="wrap"><div class="flexible-widgets widget-area fadeup-effect' . refined_widget_area_class( 'front-page-5' ) . '">',
-		'after'  => '</div></div></div>',
-	));
-
+	
 }
 
 /**
